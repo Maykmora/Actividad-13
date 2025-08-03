@@ -13,9 +13,10 @@ while True:
     while True:
         try:
             option=int(input("Seleccione una opción del menú (1-7): "))
-            if option>0:
+            if 1<=option<=7:
                 break
             else:
-                print("Error al seleccionar una opción")
+                print("Error inténtelo de nuevo ")
         except ValueError:
             print("Error inténtelo de nuevo ")
+
