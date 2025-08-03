@@ -65,3 +65,17 @@ while True:
             agregar_estudiante()
         case 2:
             agregar_curso()
+
+        case 3:
+            print()
+        case 4:
+            print()
+        case 5:
+            print()
+        case 6:
+            print()
+        case 7:
+            print("\nSaliendo del programa")
+            break
+
+
