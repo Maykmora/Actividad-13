@@ -68,6 +68,20 @@ def consultar_estudiante():
         else:
             print("El estudiante no fue encontrado, inténtelo de nuevo")
 
+def promedio_estudiante():
+    while True:
+        print("\n--PROMEDIO DE ESTUDIANTE--")
+        id_est = input("Ingrese el ID del estudiante: ")
+        if id_est in estudiantes:
+            cursos=estudiantes[id_est]["cursos"]
+            if cursos:
+                print(f"El promedio de {estudiantes[id_est]["nombre"]} es: {sum(cursos.values())/len(cursos):.2f}")
+                break
+            else:
+                print("El estudiante no tiene cursos registrados.")
+        else:
+            print("El estudiante no fue encontrado, inténtelo de nuevo")
+
 while True:
     menu()
     while True:
@@ -89,7 +103,7 @@ while True:
             consultar_estudiante()
 
         case 4:
-            print()
+            promedio_estudiante()
         case 5:
             print()
         case 6:
