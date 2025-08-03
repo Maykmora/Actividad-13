@@ -10,3 +10,9 @@ def menu():
 
 while True:
     menu()
+    while True:
+        try:
+            option=int(input("Seleccione una opción del menú (1-7): "))
+            break
+        except ValueError:
+            print("Error inténtelo de nuevo ")
