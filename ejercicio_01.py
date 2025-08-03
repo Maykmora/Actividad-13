@@ -48,6 +48,7 @@ def agregar_curso():
                 print("Entrada invalida, inténtelo de nuevo")
             break
 
+
 while True:
     menu()
     while True:
@@ -65,9 +66,9 @@ while True:
             agregar_estudiante()
         case 2:
             agregar_curso()
-
         case 3:
-            print()
+            print("\n--CONSULTAR ESTUDIANTE--")
+
         case 4:
             print()
         case 5:
