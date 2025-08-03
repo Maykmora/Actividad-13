@@ -1,6 +1,7 @@
 estudiantes={}
 
 def menu():
+    print("\n--MENÚ--")
     print("1.Agregar estudiante")
     print("2.Agregar curso con nota")
     print("3.Consultar estudiante")
@@ -8,19 +9,22 @@ def menu():
     print("5.Verificar si aprueba")
     print("6.Mostramos todos los estudiantes")
     print("7.Salir")
+
 def agregar_estudiante():
-    id_unico=input("Ingrese el ID del estudiante: ")
     while True:
+        print("\n--AGREGAR ESTUDIANTE--")
+        id_unico = input("Ingrese el ID del estudiante: ")
         if id_unico in estudiantes:
             print("El ID ya existe, registre uno nuevo")
         else:
-            nombre=int("Ingrese el nombre del estudiante: ")
-            carrera=int("Ingrese la carrera del estudiante: ")
+            nombre=input("Ingrese el nombre del estudiante: ")
+            carrera=input("Ingrese la carrera del estudiante: ")
             estudiantes[id_unico]={
                 "nombre":nombre,
                 "carrera":carrera,
                 "cursos":{}
             }
+            print("Estudiante agregado correctamente")
             break
 
 while True:
@@ -37,4 +41,4 @@ while True:
 
     match option:
         case 1:
-            print()
+            agregar_estudiante()
