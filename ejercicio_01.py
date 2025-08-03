@@ -53,13 +53,13 @@ def consultar_estudiante():
         print("\n--CONSULTAR ESTUDIANTE--")
         id_est=input("Ingrese el ID del estudiante: ")                  #solicitamos el ID
         if id_est in estudiantes:                                       #verificacion
-            print(f"Nombre: {estudiantes[id_est]["nombre"]}")           #imprimimos la informacion
+            print(f"Nombre: {estudiantes[id_est]["nombre"]}")           #imprimimos la información
             print(f"Carrera: {estudiantes[id_est]["carrera"]}")
             if estudiantes[id_est]["cursos"]:                           #validacion de que existan cursos
                 print("Cursos asignados: ")
                 print("Curso : Nota final")
                 for curso, nota in estudiantes[id_est]["cursos"].items():
-                    print(f"{curso}: {nota}")                           #Imprimimos informacion del estudiante
+                    print(f"{curso}: {nota}")                           #Imprimimos información del estudiante
                 break
             else:
                 print("El estudiante no tiene cursos asignados")
@@ -90,7 +90,7 @@ def verificar_si_aprueba():
                 aprueba=True
                 for curso, nota in estudiantes[id_est]["cursos"].items():
                     if nota <61:
-                        aprueba=False                           #convertimos el true en false para validar si aprobo o no
+                        aprueba=False                           #convertimos el true en false para validar si aprobó o no
                         break                                   #detenemos para ya no seguir el for
                 if aprueba:
                     print(f"El estudiante {estudiantes[id_est]["nombre"]}, aprobó todos sus cursos")
@@ -134,7 +134,7 @@ while True:                 #Programa principal
     while True:
         try:                                                            #try para evitar errores
             option=int(input("Seleccione una opción del menú (1-7): "))
-            if 1<=option<=7:                                            #validación si esta dentro del rango
+            if 1<=option<=7:                                            #validación si está dentro del rango
                 break
             else:
                 print("Error inténtelo de nuevo ")
