@@ -10,8 +10,19 @@ def menu():
     print("7.Salir")
 def agregar_estudiante():
     id_unico=input("Ingrese el ID del estudiante: ")
-    if id_unico in estudiantes:
-        print("El ID ya existe, registre uno nuevo")
+    while True:
+        if id_unico in estudiantes:
+            print("El ID ya existe, registre uno nuevo")
+        else:
+            nombre=int("Ingrese el nombre del estudiante: ")
+            carrera=int("Ingrese la carrera del estudiante: ")
+            estudiantes[id_unico]={
+                "nombre":nombre,
+                "carrera":carrera,
+                "cursos":{}
+            }
+            break
+
 while True:
     menu()
     while True:
