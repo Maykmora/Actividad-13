@@ -88,7 +88,23 @@ def verificar_si_aprueba():
         if id_est in estudiantes:
             if estudiantes[id_est]["cursos"]:
                 aprueba=True
-
+                for curso, nota in estudiantes[id_est]["cursos"].items():
+                    if nota <61:
+                        aprueba=False
+                        break
+                if aprueba:
+                    print(f"El estudiante {estudiantes[id_est]["nombre"]}, aprobó todos sus cursos")
+                    break
+                else:
+                    print(f"El estudiante {estudiantes[id_est]["nombre"]}, No aprobó los cursos:")
+                    for curso, nota in estudiantes[id_est]["cursos"].items():
+                        if nota < 61:
+                            print(f"{curso}: {nota}")
+                    break
+            else:
+                print("El estudiante no tiene cursos asignados")
+        else:
+            print("El estudiante no fue encontrado.")
 
 while True:
     menu()
