@@ -159,5 +159,3 @@ while True:
         case 7:
             print("\nSaliendo del programa")
             break
-
-
