@@ -73,7 +73,7 @@ def promedio_estudiante():
         print("\n--PROMEDIO DE ESTUDIANTE--")
         id_est = input("Ingrese el ID del estudiante: ")            #solicitamos el ID
         if id_est in estudiantes:                                   #verificacion de que exista el ID
-            if estudiantes[id_est]["cursos"]:
+            if estudiantes[id_est]["cursos"]:                       #si existen cursos imprime el promedio
                 print(f"El promedio de {estudiantes[id_est]["nombre"]} es: {sum(estudiantes[id_est]["cursos"].values())/len(estudiantes[id_est]["cursos"]):.2f}")
                 break
             else:
@@ -84,14 +84,14 @@ def promedio_estudiante():
 def verificar_si_aprueba():
     while True:
         print("\n--VERIFICAR APROBACIÓN--")
-        id_est=input("Ingrese el ID del estudiante:")
-        if id_est in estudiantes:
-            if estudiantes[id_est]["cursos"]:
+        id_est=input("Ingrese el ID del estudiante:")           #solicitamos el ID
+        if id_est in estudiantes:                               #verificacion si existe el ID
+            if estudiantes[id_est]["cursos"]:                   #verifiacion si hay cursos
                 aprueba=True
                 for curso, nota in estudiantes[id_est]["cursos"].items():
                     if nota <61:
-                        aprueba=False
-                        break
+                        aprueba=False                           #convertimos el true en false para validar si aprobo o no
+                        break                                   #detenemos para ya no seguir el for
                 if aprueba:
                     print(f"El estudiante {estudiantes[id_est]["nombre"]}, aprobó todos sus cursos")
                     break
@@ -109,19 +109,19 @@ def verificar_si_aprueba():
 def mostrar_info():
     while True:
         print("\n--INFORMACIÓN--")
-        if not estudiantes:
+        if not estudiantes:                                 #si no hay estudiantes se detiene
             print("No hay estudiantes para mostrar")
             break
         else:
-            contador=1
+            contador=1                                         #contador para imprimir el número de estudiante
             for id_est, datos in estudiantes.items():
                 print(f"\nEstudiante #{contador}")
-                print(f"ID: {id_est}")
+                print(f"ID: {id_est}")                         #imprimimos todos los datos
                 print(f"Nombre: {datos["nombre"]}")
                 print(f"Carrera: {datos["carrera"]}")
-                if datos["cursos"]:
+                if datos["cursos"]:                            #validacion si existen cursos
                     for curso, nota in datos["cursos"].items():
-                        print(f"{curso}: {nota}")
+                        print(f"{curso}: {nota}")              #imprecion de cursos y notas
                 else:
                     print("El estudiante no tiene cursos registrados")
                 contador+=1
@@ -129,12 +129,12 @@ def mostrar_info():
 
 
 
-while True:
+while True:                 #Programa principal
     menu()
     while True:
-        try:
+        try:                                                            #try para evitar errores
             option=int(input("Seleccione una opción del menú (1-7): "))
-            if 1<=option<=7:
+            if 1<=option<=7:                                            #validación si esta dentro del rango
                 break
             else:
                 print("Error inténtelo de nuevo ")
