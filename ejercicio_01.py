@@ -29,7 +29,8 @@ def agregar_estudiante():
 
 def agregar_curso():
     while True:
-        id_est=input("\nIngrese el ID del estudiante: ")
+        print("\n--AGREGAR CURSO--")
+        id_est=input("Ingrese el ID del estudiante: ")
         if id_est not in estudiantes:
             print("Estudiante no encontrado, inténtelo de nuevo")
         else:
@@ -46,8 +47,6 @@ def agregar_curso():
             except ValueError:
                 print("Entrada invalida, inténtelo de nuevo")
             break
-
-
 
 while True:
     menu()
