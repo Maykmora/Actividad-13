@@ -48,6 +48,24 @@ def agregar_curso():
                 print("Entrada invalida, inténtelo de nuevo")
             break
 
+def consultar_estudiante():
+    while True:
+        print("\n--CONSULTAR ESTUDIANTE--")
+        id_est=input("Ingrese el ID del estudiante: ")
+        if id_est in estudiantes:
+            print(f"Nombre: {estudiantes[id_est]["nombre"]}")
+            print(f"Carrera: {estudiantes[id_est]["carrera"]}")
+            if estudiantes[id_est]["cursos"]:
+                print("Cursos asignados: ")
+                for curso, nota in estudiantes[id_est]["cursos"].items():
+                    print(f"{curso}: {nota}")
+                break
+            else:
+                print("El estudiante no tiene cursos asignados")
+                break
+
+        else:
+            print("El estudiante no fue encontrado, inténtelo de nuevo")
 
 while True:
     menu()
@@ -67,7 +85,7 @@ while True:
         case 2:
             agregar_curso()
         case 3:
-            print("\n--CONSULTAR ESTUDIANTE--")
+            consultar_estudiante()
 
         case 4:
             print()
