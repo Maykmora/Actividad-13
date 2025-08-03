@@ -82,6 +82,14 @@ def promedio_estudiante():
         else:
             print("El estudiante no fue encontrado, inténtelo de nuevo")
 
+def verificar_si_aprueba():
+    while True:
+        id_est=input("Ingrese el ID del estudiante:")
+        if id_est in estudiantes:
+            if estudiantes[id_est]["cursos"]:
+                aprueba=True
+
+
 while True:
     menu()
     while True:
