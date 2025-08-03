@@ -84,6 +84,7 @@ def promedio_estudiante():
 
 def verificar_si_aprueba():
     while True:
+        print("\n--VERIFICAR APROBACIÓN--")
         id_est=input("Ingrese el ID del estudiante:")
         if id_est in estudiantes:
             if estudiantes[id_est]["cursos"]:
@@ -105,6 +106,29 @@ def verificar_si_aprueba():
                 print("El estudiante no tiene cursos asignados")
         else:
             print("El estudiante no fue encontrado.")
+
+def mostrar_info():
+    while True:
+        print("\n--INFORMACIÓN--")
+        if not estudiantes:
+            print("No hay estudiantes para mostrar")
+            break
+        else:
+            contador=1
+            for id_est, datos in estudiantes.items():
+                print(f"\nEstudiante #{contador}")
+                print(f"ID: {id_est}")
+                print(f"Nombre: {datos["nombre"]}")
+                print(f"Carrera: {datos["carrera"]}")
+                if datos["cursos"]:
+                    for curso, nota in datos["cursos"].items():
+                        print(f"{curso}: {nota}")
+                else:
+                    print("El estudiante no tiene cursos registrados")
+                contador+=1
+            break
+
+
 
 while True:
     menu()
@@ -129,9 +153,9 @@ while True:
         case 4:
             promedio_estudiante()
         case 5:
-            print()
+            verificar_si_aprueba()
         case 6:
-            print()
+            mostrar_info()
         case 7:
             print("\nSaliendo del programa")
             break
