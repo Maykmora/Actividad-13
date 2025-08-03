@@ -27,6 +27,28 @@ def agregar_estudiante():
             print("Estudiante agregado correctamente")
             break
 
+def agregar_curso():
+    while True:
+        id_est=input("\nIngrese el ID del estudiante: ")
+        if id_est not in estudiantes:
+            print("Estudiante no encontrado, inténtelo de nuevo")
+        else:
+            curso= input("Ingrese el nombre del curso: ")
+            try:
+                while True:
+                    nota=int(input(f"Ingrese la nota final del curso '{curso.strip()}':"))
+                    if 0<= nota <=100:
+                        estudiantes[id_est]["cursos"][curso]=nota
+                        print("Curso y nota agregado correctamente")
+                        break
+                    else:
+                        print("La nota debe estar entre 0 y 100, inténtelo de nuevo.")
+            except ValueError:
+                print("Entrada invalida, inténtelo de nuevo")
+            break
+
+
+
 while True:
     menu()
     while True:
@@ -42,3 +64,5 @@ while True:
     match option:
         case 1:
             agregar_estudiante()
+        case 2:
+            agregar_curso()
