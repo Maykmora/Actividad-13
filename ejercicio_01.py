@@ -57,6 +57,7 @@ def consultar_estudiante():
             print(f"Carrera: {estudiantes[id_est]["carrera"]}")
             if estudiantes[id_est]["cursos"]:
                 print("Cursos asignados: ")
+                print("Curso : Nota final")
                 for curso, nota in estudiantes[id_est]["cursos"].items():
                     print(f"{curso}: {nota}")
                 break
