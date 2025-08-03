@@ -4,7 +4,7 @@ def menu():
     print("\n--MENÚ--")
     print("1.Agregar estudiante")
     print("2.Agregar curso con nota")
-    print("3.Consultar estudiante")
+    print("3.Consultar estudiante")                 #Creacion del menú principal
     print("4.Calcular promedio de estudiante")
     print("5.Verificar si aprueba")
     print("6.Mostramos todos los estudiantes")
@@ -13,13 +13,13 @@ def menu():
 def agregar_estudiante():
     while True:
         print("\n--AGREGAR ESTUDIANTE--")
-        id_unico = input("Ingrese el ID del estudiante: ")
-        if id_unico in estudiantes:
+        id_unico = input("Ingrese el ID del estudiante: ")      #solicitamos el ID
+        if id_unico in estudiantes:                             #verificacion
             print("El ID ya existe, registre uno nuevo")
         else:
             nombre=input("Ingrese el nombre del estudiante: ")
             carrera=input("Ingrese la carrera del estudiante: ")
-            estudiantes[id_unico]={
+            estudiantes[id_unico]={                             #Agregamos los datos al diccionario
                 "nombre":nombre,
                 "carrera":carrera,
                 "cursos":{}
@@ -30,16 +30,16 @@ def agregar_estudiante():
 def agregar_curso():
     while True:
         print("\n--AGREGAR CURSO--")
-        id_est=input("Ingrese el ID del estudiante: ")
-        if id_est not in estudiantes:
+        id_est=input("Ingrese el ID del estudiante: ")              #solicitamos el ID
+        if id_est not in estudiantes:                               #verficacion
             print("Estudiante no encontrado, inténtelo de nuevo")
         else:
-            curso= input("Ingrese el nombre del curso: ")
-            try:
+            curso= input("Ingrese el nombre del curso: ")              #solicitamos el nombre del curso
+            try:                                                       #Evitamos errores
                 while True:
                     nota=int(input(f"Ingrese la nota final del curso '{curso.strip()}':"))
                     if 0<= nota <=100:
-                        estudiantes[id_est]["cursos"][curso]=nota
+                        estudiantes[id_est]["cursos"][curso]=nota       #agreamos al diccionario las notas
                         print("Curso y nota agregado correctamente")
                         break
                     else:
@@ -51,15 +51,15 @@ def agregar_curso():
 def consultar_estudiante():
     while True:
         print("\n--CONSULTAR ESTUDIANTE--")
-        id_est=input("Ingrese el ID del estudiante: ")
-        if id_est in estudiantes:
-            print(f"Nombre: {estudiantes[id_est]["nombre"]}")
+        id_est=input("Ingrese el ID del estudiante: ")                  #solicitamos el ID
+        if id_est in estudiantes:                                       #verificacion
+            print(f"Nombre: {estudiantes[id_est]["nombre"]}")           #imprimimos la informacion
             print(f"Carrera: {estudiantes[id_est]["carrera"]}")
-            if estudiantes[id_est]["cursos"]:
+            if estudiantes[id_est]["cursos"]:                           #validacion de que existan cursos
                 print("Cursos asignados: ")
                 print("Curso : Nota final")
                 for curso, nota in estudiantes[id_est]["cursos"].items():
-                    print(f"{curso}: {nota}")
+                    print(f"{curso}: {nota}")                           #Imprimimos informacion del estudiante
                 break
             else:
                 print("El estudiante no tiene cursos asignados")
@@ -71,11 +71,10 @@ def consultar_estudiante():
 def promedio_estudiante():
     while True:
         print("\n--PROMEDIO DE ESTUDIANTE--")
-        id_est = input("Ingrese el ID del estudiante: ")
-        if id_est in estudiantes:
-            cursos=estudiantes[id_est]["cursos"]
-            if cursos:
-                print(f"El promedio de {estudiantes[id_est]["nombre"]} es: {sum(cursos.values())/len(cursos):.2f}")
+        id_est = input("Ingrese el ID del estudiante: ")            #solicitamos el ID
+        if id_est in estudiantes:                                   #verificacion de que exista el ID
+            if estudiantes[id_est]["cursos"]:
+                print(f"El promedio de {estudiantes[id_est]["nombre"]} es: {sum(estudiantes[id_est]["cursos"].values())/len(estudiantes[id_est]["cursos"]):.2f}")
                 break
             else:
                 print("El estudiante no tiene cursos registrados.")
